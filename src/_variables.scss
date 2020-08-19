@@ -1,0 +1,60 @@
+// # Variables
+
+// Typography
+// ==========================================================================
+
+// Define whether to target elements directly for typographic enhancements.
+// Turning this off means you need to use classes more often.
+// Other components may also fail to adhere to Outeria font styles without these rules.
+// It is strongly recommended you leave this as true.
+$target-elements-directly: true !default;
+
+// Font family
+// Set it to 'Helvetica', 'Arial', sans-serif if you prefer performance.
+$font-family-base: "Roboto", "Helvetica", "Arial", sans-serif !default;
+
+// Font weight
+$font-weight-lighter: lighter !default;
+$font-weight-bolder: bolder !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+
+// Font size
+$small-font-size: 80% !default;
+$sub-sup-font-size: 75% !default;
+
+// $font-size-root effects the value of `rem`, which is used for as well font sizes, paddings and margins.
+$font-size-root: null !default;
+
+// $font-size-base effects the font size of the body text.
+// $line-height-base effects the line height of the body text.
+$font-size-base: 14px !default;
+$line-height-base: 20px !default;
+$font-weight-base: $font-weight-normal !default;
+
+// Resets & Helpers
+// ==========================================================================
+
+// It is often useful to set box-sizing to border-box to layout elements.
+// This makes dealing with the sizes of elements much easier, and generally
+// eliminates a number of pitfalls you can stumble on while laying out
+// your content.
+$box-sizing: border-box !default;
+
+// Selection
+// Customize the background color to match your design.
+$selection-color: #b3d4fc !default;
+
+// Default HTML font color.
+$text-color-default: #222 !default;
+
+// Default border color for hr, fieldset elements.
+$border-color-default: #ccc !default;
+
+// Default body background color.
+$bg-color-default: #fff !default;
+
+// Lists
+// dt font weight
+$dt-font-weight: $font-weight-bold !default;

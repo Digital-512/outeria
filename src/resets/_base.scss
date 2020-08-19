@@ -1,0 +1,461 @@
+// # Reboot
+
+// Normalization of HTML elements, manually forked from Normalize.css to remove
+// styles targeting irrelevant browsers while applying new styles.
+
+// Normalize is licensed MIT. https://github.com/necolas/normalize.css
+
+@use '../variables' as var;
+
+// Document
+// ==========================================================================
+
+// Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
+// border-box by default.
+
+*,
+*::before,
+*::after {
+    box-sizing: var.$box-sizing;
+}
+
+// Root
+// Ability to the value of the root font sizes, affecting the value of `rem`.
+// null by default, thus nothing is generated.
+
+:root {
+    font-size: var.$font-size-root;
+}
+
+// Selection
+// Remove text-shadow in selection highlight:
+// https://twitter.com/miketaylr/status/12228805301
+
+// Vendor-prefixed and regular ::selection selectors cannot be combined:
+// https://stackoverflow.com/a/16982510/7133471
+
+// Customize the background color to match your design.
+
+::-moz-selection {
+    background: var.$selection-color;
+    text-shadow: none;
+}
+
+::selection {
+    background: var.$selection-color;
+    text-shadow: none;
+}
+
+// 1. Change the default font family in all browsers (opinionated).
+// 2. Correct the line height in all browsers.
+// 3. Prevent adjustments of font size after orientation changes in iOS.
+// 4. Change the default tap highlight to be completely transparent on mobile.
+// 5. Then set touch-action to avoid touch delay on mobile IE.
+
+html {
+    font-family: sans-serif; // 1
+    line-height: 1.25; // 2
+    -webkit-text-size-adjust: 100%; // 3
+    -webkit-tap-highlight-color: transparent; // 4
+    -ms-touch-action: manipulation; // 5
+    touch-action: manipulation;
+}
+
+// Sections
+// ==========================================================================
+
+// 1. Remove the margin in all browsers.
+// 2. Set default text color.
+// 3. As a best practice, apply a default `background-color`.
+
+body {
+    margin: 0; // 1
+    color: var.$text-color-default; // 2
+    background-color: var.$bg-color-default;
+}
+
+// Main display reset for IE support.
+// Source: http://weblog.west-wind.com/posts/2015/Jan/12/main-HTML5-Tag-not-working-in-Internet-Explorer-91011
+
+main {
+    display: block;
+}
+
+// Content
+// ==========================================================================
+
+// Future-proof rule: in browsers that support :focus-visible, suppress the focus outline
+// on elements that programmatically receive focus but wouldn't normally show a visible
+// focus outline. In general, this would mean that the outline is only applied if the
+// interaction that led to the element receiving programmatic focus was a keyboard interaction,
+// or the browser has somehow determined that the user is primarily a keyboard user and/or
+// wants focus outlines to always be presented.
+// See https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible
+// and https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+
+[tabindex="-1"]:focus:not(:focus-visible) {
+    outline: 0 !important;
+}
+
+// A better looking default horizontal rule.
+
+hr {
+    display: block;
+    border: 0;
+    border-top: 1px solid var.$border-color-default;
+    margin: 1em 0;
+    padding: 0;
+}
+
+// 1. Correct the inheritance and scaling of font size in all browsers.
+// 2. Correct the odd `em` font sizing in all browsers.
+
+pre,
+code,
+kbd,
+samp {
+    font-family: monospace, monospace; // 1
+    font-size: 1em; // 2
+}
+
+// Text-level semantics
+// ==========================================================================
+
+// Remove the gray background on active links in IE 10.
+
+a {
+    background-color: transparent;
+}
+
+// Abbreviations
+// Set a dotted border in all browsers.
+
+abbr[title] {
+    border-bottom: 1px dotted currentColor;
+    text-decoration: none;
+    cursor: help;
+}
+
+// Address
+
+address {
+    margin-bottom: 1rem;
+    font-style: normal;
+    line-height: inherit;
+}
+
+// Lists
+
+ol,
+ul {
+    padding-left: 2rem;
+}
+
+ol,
+ul,
+dl {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+    margin-bottom: 0;
+}
+
+dt {
+    font-weight: var.$dt-font-weight;
+}
+
+// 1. Undo browser default
+
+dd {
+    margin-bottom: 0.5rem;
+    margin-left: 0; // 1
+}
+
+// Blockquote
+
+blockquote {
+    margin: 0 0 1rem;
+}
+
+// Add the correct font weight in Chrome, Edge, and Safari.
+
+b,
+strong {
+    font-weight: var.$font-weight-bolder;
+}
+
+// Add the correct font size in all browsers.
+
+small {
+    font-size: var.$small-font-size;
+}
+
+// Prevent `sub` and `sup` elements from affecting the line height
+// in all browsers.
+
+sub,
+sup {
+    font-size: var.$sub-sup-font-size;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+// Embedded content
+// ==========================================================================
+
+// Remove the border on images inside links in IE 10-.
+
+a img {
+    border-style: none;
+}
+
+// Figures
+// Apply a consistent margin strategy (matches our type styles).
+
+figure {
+    margin: 0 0 1rem;
+}
+
+// Remove the gap between audio, canvas, iframes,
+// images, videos and the bottom of their containers:
+// https://github.com/h5bp/html5-boilerplate/issues/440
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+// Tables
+// 1. Specify the placement of a table caption.
+// 2. Prevent double borders.
+
+table {
+    caption-side: bottom; // 1
+    border-collapse: collapse; // 2
+}
+
+// Hide the overflow in IE.
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+// Forms
+// ==========================================================================
+
+// Allow labels to use `margin` for spacing.
+
+label {
+    display: inline-block;
+}
+
+// 1. Change the font styles in all browsers
+// 2. Remove the margin in Firefox and Safari.
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font: inherit; // 1
+    margin: 0; // 2
+}
+
+// 1. Show the overflow in IE and Edge.
+// 2. Remove the default `border-radius` that macOS Chrome adds.
+
+button {
+    overflow: visible; // 1
+    border-radius: 0; // 2
+}
+
+// Work around a Firefox/IE bug where the transparent `button` background
+// results in a loss of the default `button` focus styles.
+// Credit: https://github.com/suitcss/base/
+
+button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+// Remove the inheritance of text transform in Edge, Firefox, and IE.
+
+button,
+select {
+    text-transform: none;
+}
+
+// Set the cursor for non-`<button>` buttons.
+
+[role="button"] {
+    cursor: pointer;
+}
+
+// Remove the inheritance of word-wrap in Safari.
+
+select {
+    word-wrap: normal;
+}
+
+// Remove the dropdown arrow in Chrome from inputs built with datalists.
+
+[list]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+// Correct the inability to style clickable types in iOS and Safari.
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+
+// 1. Add the correct box sizing in IE 10-.
+// 2. Remove the padding in IE 10-.
+
+input[type="radio"],
+input[type="checkbox"] {
+    box-sizing: border-box; // 1
+    padding: 0; // 2
+}
+
+// Remove inner border and padding from Firefox, but don't restore the outline like Normalize.
+
+::-moz-focus-inner {
+    padding: 0;
+    border-style: none;
+}
+
+// Add the correct vertical alignment in Chrome, Firefox, and Opera.
+
+progress {
+    vertical-align: baseline;
+}
+
+// 1. Browsers set a default `min-width: min-content;` on fieldsets,
+//    unlike e.g. `<div>`s, which have `min-width: 0;` by default.
+//    So we reset that to ensure fieldsets behave more like a standard block element.
+// 2. Set default border to be consistent in all browsers.
+// 3. Reset the default margin of fieldsets so they don't affect page layout.
+// 4. Set default padding.
+
+fieldset {
+    min-width: 0; // 1
+    border: 1px solid var.$border-color-default; // 2
+    margin: 0; // 3
+    padding: 16px; // 4
+}
+
+// 1. Set default padding.
+// 2. Correct the color and line-height inheritance from `fieldset` elements in IE.
+// 3. Correct the text wrapping in Edge and IE.
+
+legend {
+    padding: 0 4px; // 1
+    color: inherit; // 2
+    line-height: inherit;
+    white-space: normal; // 3
+}
+
+// 1. Allow only vertical resizing of textareas.
+// 2. Remove the default vertical scrollbar in IE 10+.
+
+textarea {
+    resize: vertical;
+    overflow: auto;
+}
+
+// Fix height of inputs with a type of datetime-local, date, month, week, or time.
+
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-year-field {
+    padding: 0;
+}
+
+::-webkit-inner-spin-button {
+    height: auto;
+}
+
+// 1. Correct the odd appearance in Chrome and Safari.
+// 2. Correct the outline style in Safari.
+
+[type="search"] {
+    -webkit-appearance: textfield; // 1
+    outline-offset: -2px; // 2
+}
+
+// Remove the inner padding in Chrome and Safari on macOS.
+
+::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+// Remove padding around color pickers in webkit browsers.
+
+::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+// 1. Change font properties to `inherit` in Safari.
+// 2. Correct the inability to style clickable types in iOS and Safari.
+
+::-webkit-file-upload-button {
+    font: inherit; // 1
+    -webkit-appearance: button; // 2
+}
+
+// Misc
+// ==========================================================================
+
+// Correct element displays.
+
+output {
+    display: inline-block;
+}
+
+// Remove border from iframe.
+
+iframe {
+    border: 0;
+}
+
+// Summary
+// 1. Add the correct display in all browsers.
+
+details {
+    display: block; // 1
+}
+
+summary {
+    display: list-item; // 1
+    cursor: pointer;
+}
+
+template {
+    display: none; // 1
+}

@@ -1,0 +1,13 @@
+// # Typography
+
+@use '../variables' as var;
+@use '../functions' as fun;
+
+@if var.$target-elements-directly {
+    body {
+        font-family: var.$font-family-base;
+        font-size: fun.pxToRem(var.$font-size-base);
+        font-weight: var.$font-weight-base;
+        line-height: fun.pxToRem(var.$line-height-base);
+    }
+}
