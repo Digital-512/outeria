@@ -1,14 +1,14 @@
-/* ==========================================================================
-   Print styles.
-   ========================================================================== */
+// # Print styles
+
+// Optimize the printing process and make the printed pages easier to read.
+// Forked from h5bp/main.css. MIT licensed. https://github.com/h5bp/main.css
 
 @media print {
     *,
     *::before,
     *::after {
         background: #fff !important;
-        color: #000 !important;
-        /* Black prints faster */
+        color: #000 !important; // Black prints faster
         box-shadow: none !important;
         text-shadow: none !important;
     }
@@ -26,10 +26,9 @@
         content: " (" attr(title) ")";
     }
 
-    /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
+    // Don't show links that are fragment identifiers,
+    // or use the `javascript:` pseudo protocol.
+
     a[href^="#"]::after,
     a[href^="javascript:"]::after {
         content: "";
@@ -45,10 +44,9 @@
         page-break-inside: avoid;
     }
 
-    /*
-     * Printing Tables:
-     * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
-     */
+    // Printing Tables:
+    // https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+
     thead {
         display: table-header-group;
     }
